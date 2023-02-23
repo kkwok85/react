@@ -6,7 +6,7 @@ function App() {
   const [role, setRole] = useState('dev');
   const showEmployees = true;
   return (
-    <div className="App bg-red-300">
+    <div className="App">
       {showEmployees ? (
 
       
@@ -15,9 +15,14 @@ function App() {
         console.log(e.target.value);
         setRole(e.target.value);
       }}/>
+      <div className = "flex flex-wrap justify-center">
+        <Employee name = "Caleb" role = "Intern" img ="https://images.pexels.com/photos/1096657/pexels-photo-1096657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
+        <Employee name = "Abby" role = {role}/>
+        <Employee name = "David"/>
         <Employee name = "Caleb" role = "Intern"/>
         <Employee name = "Abby" role = {role}/>
         <Employee name = "David"/>
+      </div>
 
       </>
       ) : (
