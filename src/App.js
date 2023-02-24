@@ -1,9 +1,47 @@
 import './index.css';
-import Employee from './components/Employee'
+import Employee from './components/Employee';
 import {useState} from 'react';
+import {v4 as uuidv4} from 'uuid';
 
 function App() {
   const [role, setRole] = useState('dev');
+  const [employees, setEmployees] = useState(
+    [
+      {
+        name: "Caleb",
+        role: "Developer",
+        img: "https://images.pexels.com/photos/1096657/pexels-photo-1096657.jpeg"
+      },
+      {
+        name: "Sal",
+        role: "Manager",
+        img: "https://images.pexels.com/photos/1096657/pexels-photo-1096657.jpeg"
+      },
+      {
+        name: "Caleb",
+        role: "Developer",
+        img: "https://images.pexels.com/photos/1096657/pexels-photo-1096657.jpeg"
+      },
+      {
+        name: "Caleb",
+        role: "Developer",
+        img: "https://images.pexels.com/photos/1096657/pexels-photo-1096657.jpeg"
+      },
+      {
+        name: "Caleb",
+        role: "Developer",
+        img: "https://images.pexels.com/photos/1096657/pexels-photo-1096657.jpeg"
+      },
+      {
+        name: "Caleb",
+        role: "Developer",
+        img: "https://images.pexels.com/photos/1096657/pexels-photo-1096657.jpeg"
+      }
+
+    ]
+
+
+  );
   const showEmployees = true;
   return (
     <div className="App">
@@ -16,12 +54,18 @@ function App() {
         setRole(e.target.value);
       }}/>
       <div className = "flex flex-wrap justify-center">
-        <Employee name = "Caleb" role = "Intern" img ="https://images.pexels.com/photos/1096657/pexels-photo-1096657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
-        <Employee name = "Abby" role = {role}/>
-        <Employee name = "David"/>
-        <Employee name = "Caleb" role = "Intern"/>
-        <Employee name = "Abby" role = {role}/>
-        <Employee name = "David"/>
+          {employees.map( (employee) => {
+            console.log(employee);
+            // since this is a function, so need to have a return
+            return(
+              <Employee 
+              key = {uuidv4()}
+              name={employee.name} 
+              role = {employee.role} 
+              img = {employee.img} 
+              />
+            );
+          } ) }
       </div>
 
       </>
